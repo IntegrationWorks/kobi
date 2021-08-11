@@ -1,3 +1,0 @@
-[submodule "deck"]
-	path = deck
-	url = git@github.com:Kong/deck.git
