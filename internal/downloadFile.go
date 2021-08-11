@@ -20,20 +20,20 @@ func DownloadFile(service string, output string) error {
 	client := github.NewClient(nil)
 	file, _, _, err := client.Repositories.GetContents(context.Background(), BIAN_ORG, BIAN_REPO, path, &github.RepositoryContentGetOptions{})
 
-	fmt.Printf("Downloading API spec...\n")
+	fmt.Println("Downloading API spec...")
 	if err != nil {
 		fmt.Printf("Failed to connect to BIAN github repository: %s", err.Error())
 		return err
 	}
 
-	fmt.Printf("Decoding API spec...\n")
+	fmt.Println("Decoding API spec...")
 	dec, err := base64.StdEncoding.DecodeString(*file.Content)
 	if err != nil {
 		fmt.Printf("Failed to decode file: %s", err.Error())
 		return err
 	}
 
-	fmt.Printf("Creating output file...\n")
+	fmt.Println("Creating output file...")
 	f, err := os.Create(output)
 	if err != nil {
 		fmt.Printf("Failed to create file: %s", err.Error())
@@ -41,7 +41,7 @@ func DownloadFile(service string, output string) error {
 	}
 	defer f.Close()
 
-	fmt.Printf("Writing output file...\n")
+	fmt.Println("Writing output file...")
 	if _, err := f.Write(dec); err != nil {
 		fmt.Printf("Failed to write file: %s", err.Error())
 		return err
@@ -51,7 +51,7 @@ func DownloadFile(service string, output string) error {
 		return err
 	}
 
-	fmt.Printf("Success!")
+	fmt.Println("Success!")
 
 	return nil
 
