@@ -31,9 +31,19 @@ var rootCmd = &cobra.Command{
 	Use:   "bong",
 	Short: "Download and deploy BIAN semantic APIs to Kong",
 	Long: `
-Bong is a CLI library that downloads artifacts from the official.
-BIAN public repository of semantic APIs and deploys these to a
-running instance of a Kong API Gateway or Developer Portal.`,
+	_______       ,-----.    ,---.   .--.  .-_'''-.    
+	\  ____  \   .'  .-,  '.  |    \  |  | '_( )_   \   
+	| |    \ |  / ,-.|  \ _ \ |  ,  \ |  ||(_ o _)|  '  
+	| |____/ / ;  \  '_ /  | :|  |\_ \|  |. (_,_)/___|  
+	|   _ _ '. |  _',/ \ _/  ||  _( )_\  ||  |  .-----. 
+	|  ( ' )  \: (  '\_/ \   ;| (_ o _)  |'  \  '-   .' 
+	| (_{;}_) | \ '"/  \  ) / |  (_,_)\  | \  '-''   |  
+	|  (_,_)  /  '. \_/''".'  |  |    |  |  \        /  
+	/_______.'     '-----'    '--'    '--'   ''-...-'   
+														
+Bong is a CLI library that downloads API specifications from the 
+official BIAN public repository of semantic APIs and deploys these 
+to a running instance of a Kong API Gateway or Developer Portal.`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
