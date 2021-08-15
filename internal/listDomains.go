@@ -31,7 +31,10 @@ func ListServices() {
 			domainName := t.GetPath()
 			domainName = strings.Replace(domainName, REPO_PATH, "", 1)
 			domainName = strings.Replace(domainName, FILE_EXTENSION, "", 1)
-			fmt.Println(domainName)
+			if domainName != "Readme.md" {
+				fmt.Println(domainName)
+			}
+
 		}
 	}
 }

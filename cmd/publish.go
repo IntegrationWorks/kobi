@@ -24,16 +24,16 @@ import (
 )
 
 var (
-	deployCmdWorkspace string
-	deployCmdService   string
+	publishCmdWorkspace string
+	publishCmdService   string
 )
 
-// deployCmd represents the deploy command
-var deployCmd = &cobra.Command{
-	Use:   "deploy [service]",
-	Short: "Deploy the BIAN API Definition to a Kong Developer Portal.",
+// publishCmd represents the publish command
+var publishCmd = &cobra.Command{
+	Use:   "publish [service]",
+	Short: "publish the BIAN API Definition to a Kong Developer Portal.",
 	Long: `Download the BIAN Swagger Specification (.json) file from the public
-BIAN repository of semantic APIs and deploy it to the Developer Portal
+BIAN repository of semantic APIs and publish it to the Developer Portal
 of an existing Kong installation. 
 
 By default, Bong will look for the Kong admin API at http://localhost:8001
@@ -47,21 +47,21 @@ to the Portal Files API.`,
 		if len(args) == 0 || args[0] == "" {
 			return fmt.Errorf("missing argument `service`")
 		}
-		deployCmdService = args[0]
+		publishCmdService = args[0]
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		err := internal.DownloadFile(deployCmdService, "")
+		err := internal.DownloadFile(publishCmdService, "")
 		if err != nil {
 			return err
 		}
-		defer os.Remove(deployCmdService + ".json")
-		return internal.DeploySpecToPortal(deployCmdWorkspace, deployCmdService)
+		defer os.Remove(publishCmdService + ".json")
+		return internal.PublishSpecToPortal(publishCmdWorkspace, publishCmdService)
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(deployCmd)
-	deployCmd.Flags().StringVarP(&deployCmdWorkspace, "workspace", "w", "", "Kong Workspace to deploy specification to.")
+	rootCmd.AddCommand(publishCmd)
+	publishCmd.Flags().StringVarP(&publishCmdWorkspace, "workspace", "w", "", "Kong Workspace to publish specification to.")
 
 }

@@ -29,7 +29,7 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "bong",
-	Short: "Download and deploy BIAN semantic APIs to Kong",
+	Short: "Download and publish BIAN semantic APIs to Kong",
 	Long: `
 	_______       ,-----.    ,---.   .--.  .-_'''-.    
 	\  ____  \   .'  .-,  '.  |    \  |  | '_( )_   \   
@@ -42,7 +42,7 @@ var rootCmd = &cobra.Command{
 	/_______.'     '-----'    '--'    '--'   ''-...-'   
 														
 Bong is a CLI library that downloads API specifications from the 
-official BIAN public repository of semantic APIs and deploys these 
+official BIAN public repository of semantic APIs and publishs these 
 to a running instance of a Kong API Gateway or Developer Portal.`,
 }
 

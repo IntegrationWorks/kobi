@@ -26,8 +26,8 @@ var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List all available BIAN service domains",
 	Long: `Returns a list of available BIAN service domains which can be
-subsequently deployed to a Kong API Manager or Kong Developer 
-Portal using bong deploy `,
+subsequently published to a Kong API Manager or Kong Developer 
+Portal using bong publish `,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("-- Listing all available BIAN service domains --")
 		internal.ListServices()

@@ -18,7 +18,7 @@ var (
 	workspace      string
 )
 
-func DeploySpecToPortal(workspaceFlag string, filepath string) error {
+func PublishSpecToPortal(workspaceFlag string, filepath string) error {
 
 	filepath = filepath + FILE_EXTENSION
 
