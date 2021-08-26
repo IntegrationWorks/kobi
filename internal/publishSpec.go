@@ -28,8 +28,8 @@ func PublishSpecToPortal(workspaceFlag string, filepath string) error {
 		workspace = workspaceFlag
 	}
 
-	kongAddress = os.Getenv("BONG_KONG_ADDR")
-	kongAuthHeader = os.Getenv("BONG_KONG_TOKEN")
+	kongAddress = os.Getenv("kobi_KONG_ADDR")
+	kongAuthHeader = os.Getenv("kobi_KONG_TOKEN")
 
 	if kongAddress == "" {
 		kongAddress = "http://127.0.0.1:8001"
@@ -43,7 +43,7 @@ func PublishSpecToPortal(workspaceFlag string, filepath string) error {
 	_, err := url.ParseRequestURI(kongAddress)
 
 	if err != nil {
-		fmt.Printf("Invalid URL %s configured for Kong. Please set the environment vairable \"BONG_KONG_ADDR\" correctly.", kongAddress)
+		fmt.Printf("Invalid URL %s configured for Kong. Please set the environment vairable \"kobi_KONG_ADDR\" correctly.", kongAddress)
 		return err
 	}
 

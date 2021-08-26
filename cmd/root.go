@@ -28,22 +28,16 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "bong",
+	Use:   "kobi",
 	Short: "Download and publish BIAN semantic APIs to Kong",
 	Long: `
-	_______       ,-----.    ,---.   .--.  .-_'''-.    
-	\  ____  \   .'  .-,  '.  |    \  |  | '_( )_   \   
-	| |    \ |  / ,-.|  \ _ \ |  ,  \ |  ||(_ o _)|  '  
-	| |____/ / ;  \  '_ /  | :|  |\_ \|  |. (_,_)/___|  
-	|   _ _ '. |  _',/ \ _/  ||  _( )_\  ||  |  .-----. 
-	|  ( ' )  \: (  '\_/ \   ;| (_ o _)  |'  \  '-   .' 
-	| (_{;}_) | \ '"/  \  ) / |  (_,_)\  | \  '-''   |  
-	|  (_,_)  /  '. \_/''".'  |  |    |  |  \        /  
-	/_______.'     '-----'    '--'    '--'   ''-...-'   
-														
-Bong is a CLI library that downloads API specifications from the 
-official BIAN public repository of semantic APIs and publishs these 
-to a running instance of a Kong API Gateway or Developer Portal.`,
+	_     _  _____  ______  _____
+	|____/  |     | |_____]   |  
+	|    \_ |_____| |_____] __|__
+																	
+Kobi is a CLI that downloads API specifications from the official
+BIAN public repository of semantic APIs and publishs these to a  
+running instance of a Kong API Gateway or Developer Portal.`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -59,7 +53,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.bong-cli.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.kobi.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -72,10 +66,10 @@ func initConfig() {
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
 
-		// Search config in home directory with name ".bong-cli" (without extension).
+		// Search config in home directory with name ".kobi-cli" (without extension).
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
-		viper.SetConfigName(".bong-cli")
+		viper.SetConfigName(".kobi-cli")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match

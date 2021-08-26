@@ -18,7 +18,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/IntegrationWorks/bong/internal"
+	"github.com/IntegrationWorks/kobi/internal"
 	"github.com/spf13/cobra"
 )
 

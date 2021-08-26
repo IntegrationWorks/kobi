@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/IntegrationWorks/bong/internal"
+	"github.com/IntegrationWorks/kobi/internal"
 	"github.com/spf13/cobra"
 )
 
@@ -36,12 +36,12 @@ var publishCmd = &cobra.Command{
 BIAN repository of semantic APIs and publish it to the Developer Portal
 of an existing Kong installation. 
 
-By default, Bong will look for the Kong admin API at http://localhost:8001
+By default, kobi will look for the Kong admin API at http://localhost:8001
 with no authentication configured. This behaviour can be overridden by setting
-the environment variables "BONG_KONG_ADDR" and BONG_KONG_TOKEN".
+the environment variables "kobi_KONG_ADDR" and kobi_KONG_TOKEN".
 
-BONG_KONG_ADDR: full base URL of Kong Admin API. E.g. https://my-kong-host:8444
-BONG_KONG_TOKEN: RBAC token value for configured Kong user with write permissions
+kobi_KONG_ADDR: full base URL of Kong Admin API. E.g. https://my-kong-host:8444
+kobi_KONG_TOKEN: RBAC token value for configured Kong user with write permissions
 to the Portal Files API.`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 || args[0] == "" {

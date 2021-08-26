@@ -18,7 +18,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/IntegrationWorks/bong/internal"
+	"github.com/IntegrationWorks/kobi/internal"
 	"github.com/spf13/cobra"
 )
 
@@ -27,7 +27,7 @@ var listCmd = &cobra.Command{
 	Short: "List all available BIAN service domains",
 	Long: `Returns a list of available BIAN service domains which can be
 subsequently published to a Kong API Manager or Kong Developer 
-Portal using bong publish `,
+Portal using kobi publish `,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("-- Listing all available BIAN service domains --")
 		internal.ListServices()

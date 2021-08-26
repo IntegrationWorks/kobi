@@ -10,7 +10,7 @@ import (
 func InitialiseWorkspace() error {
 
 	if _, err := os.Stat("./portal"); !os.IsNotExist(err) {
-		return fmt.Errorf("Portal directory already exists, cannot initialise bong project here.")
+		return fmt.Errorf("Portal directory already exists, cannot initialise kobi project here.")
 	}
 
 	fmt.Println("Cloning Kong Portal Template...")

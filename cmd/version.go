@@ -24,10 +24,10 @@ import (
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Print the Bong version number",
-	Long:  `Every CLI has a version, this is Bongs.`,
+	Short: "Print the kobi version number",
+	Long:  `Every CLI has a version, this is kobis.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("BIAN integration with Kong - Bong v0.0.1")
+		fmt.Println("BIAN integration with Kong - kobi v0.0.1")
 	},
 }
 

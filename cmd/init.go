@@ -16,15 +16,16 @@ limitations under the License.
 package cmd
 
 import (
-	"github.com/IntegrationWorks/bong/internal"
+	"github.com/IntegrationWorks/kobi/internal"
 	"github.com/spf13/cobra"
 )
 
 // initCmd represents the init command
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: "Initialise a Kong Developer Portal project with BIAN workspace",
-	Long:  `Create a project framework using the Kong Developer Portal template`,
+	Short: "Initialise a Kong Developer Portal project template with a BIAN workspace",
+	Long: `Create a project framework using the Kong Developer Portal template. Create a
+BIAN workspace directory to hold the BIAN API Specifications and thematic files.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return internal.InitialiseWorkspace()
 	},

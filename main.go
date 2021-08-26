@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/IntegrationWorks/bong/cmd"
+import "github.com/IntegrationWorks/kobi/cmd"
 
 func main() {
 	cmd.Execute()

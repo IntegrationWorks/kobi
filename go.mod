@@ -1,4 +1,4 @@
-module github.com/IntegrationWorks/bong
+module github.com/IntegrationWorks/kobi
 
 go 1.16
 
