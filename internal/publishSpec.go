@@ -28,8 +28,8 @@ func PublishSpecToPortal(workspaceFlag string, filepath string) error {
 		workspace = workspaceFlag
 	}
 
-	kongAddress = os.Getenv("kobi_KONG_ADDR")
-	kongAuthHeader = os.Getenv("kobi_KONG_TOKEN")
+	kongAddress = os.Getenv("KOBI_KONG_ADDR")
+	kongAuthHeader = os.Getenv("KOBI_KONG_TOKEN")
 
 	if kongAddress == "" {
 		kongAddress = "http://127.0.0.1:8001"
