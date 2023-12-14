@@ -9,13 +9,32 @@ import (
 	"github.com/google/go-github/v37/github"
 )
 
-func DownloadFile(service string, output string) error {
+func DownloadFile(service string, output string, bianVersion string, apiType string) error {
 
-	if output == "" {
-		output = service + ".json"
+	fileExtension := ""
+	repoPath := ""
+
+	if bianVersion == BIAN_VERSION_12 {
+		fileExtension = FILE_EXTENSION_YAML
+		if apiType == SEMANTIC_API {
+			repoPath = REPO_PATH_12_SEMANTIC
+		} else {
+			repoPath = REPO_PATH_12_ISO
+		}
+	} else {
+		fileExtension = FILE_EXTENSION_JSON
+		repoPath = REPO_PATH_9_1
 	}
 
-	path := REPO_PATH + service + FILE_EXTENSION
+	if output == "" {
+		if bianVersion == BIAN_VERSION_12 {
+			output = service + fileExtension
+		} else {
+			output = service + fileExtension
+		}
+	}
+
+	path := repoPath + service + fileExtension
 
 	client := github.NewClient(nil)
 	file, _, _, err := client.Repositories.GetContents(context.Background(), BIAN_ORG, BIAN_REPO, path, &github.RepositoryContentGetOptions{})

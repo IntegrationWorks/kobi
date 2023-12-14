@@ -18,9 +18,17 @@ var (
 	workspace      string
 )
 
-func PublishSpecToPortal(workspaceFlag string, filepath string) error {
+func PublishSpecToPortal(workspaceFlag string, filepath string, bianVersion string) error {
 
-	filepath = filepath + FILE_EXTENSION
+	fileExtension := ""
+
+	if bianVersion == BIAN_VERSION_12 {
+		fileExtension = FILE_EXTENSION_YAML
+	} else {
+		fileExtension = FILE_EXTENSION_JSON
+	}
+
+	filepath = filepath + fileExtension
 
 	if workspaceFlag == "" {
 		workspace = "default"

@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -48,20 +48,19 @@ to the Portal Files API.`,
 			return fmt.Errorf("missing argument `service`")
 		}
 		publishCmdService = args[0]
-		return nil
+		return internal.ValidateBianVersionAndAPIType(bianVersion, apiType)
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		err := internal.DownloadFile(publishCmdService, "")
+		err := internal.DownloadFile(publishCmdService, "", bianVersion, apiType)
 		if err != nil {
 			return err
 		}
 		defer os.Remove(publishCmdService + ".json")
-		return internal.PublishSpecToPortal(publishCmdWorkspace, publishCmdService)
+		return internal.PublishSpecToPortal(publishCmdWorkspace, publishCmdService, bianVersion)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(publishCmd)
 	publishCmd.Flags().StringVarP(&publishCmdWorkspace, "workspace", "w", "", "Kong Workspace to publish specification to.")
-
 }
