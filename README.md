@@ -32,7 +32,7 @@ KOBI
 
 # Compatibility
 
-Kobi is compatible with Kong Enterprise, version 1.0 and greater, and BIAN 9.0. Future releases will be compatibile with later versions of BIAN and Kong Konnect Cloud.
+Kobi is compatible with Kong Enterprise, version 1.0 and greater, and BIAN 9.1 and BIAN 12.0. Future releases will be compatibile with later versions of BIAN and Kong Konnect Cloud.
 
 # Installation
 
@@ -63,7 +63,7 @@ BIAN integration with Kong - kobi v0.0.1
 Use to list all service domains available at the remote `BIAN` repository.
 
 ```
-➜  kobi-cli git:(main) ✗ kobi list
+➜  kobi-cli git:(main) ✗ kobi list --bian-version 9.1
 -- Listing all available BIAN service domains --
 ACFFulfillment
 ATMNetworkOperations
@@ -85,7 +85,7 @@ Use to download a single service domain API specification to the local computer.
 * Output (`-o` or `--output`) - specify the filename to save the API spec to. Defaults to the name of the service domain.
 
 ```
-➜  kobi-cli git:(main) ✗ kobi download CurrentAccount
+➜  kobi-cli git:(main) ✗ kobi download --bian-version 12 --api-type iso CurrentAccount
 download called for service CurrentAccount
 Downloading API spec...
 Decoding API spec...
