@@ -3,6 +3,8 @@ package internal
 import (
 	"fmt"
 
+	"golang.org/x/exp/slices"
+
 	"github.com/spf13/cobra"
 )
 
@@ -16,13 +18,13 @@ func ValidateNoArgs(cmd *cobra.Command, args []string) error {
 
 func ValidateBianVersionAndAPIType(bianVersion string, apiType string) error {
 
-	if bianVersion != BIAN_VERSION_12 && bianVersion != BIAN_VERSION_9_1 {
-		return fmt.Errorf("api version %s not supported. supported versions are %s and %s", bianVersion, BIAN_VERSION_9_1, BIAN_VERSION_12)
+	if !slices.Contains(SUPPORTED_VERSIONS(), bianVersion) {
+		return fmt.Errorf("api version %s not supported. supported versions are %v", bianVersion, SUPPORTED_VERSIONS())
 	}
 
-	if bianVersion == BIAN_VERSION_9_1 {
-		if apiType != "" {
-			return fmt.Errorf("api type only compatible with bian version 12. set the bian version with the --bian-version (-b) flag.")
+	if bianVersion != BIAN_VERSION_12 {
+		if apiType != "" && apiType != SEMANTIC_API {
+			return fmt.Errorf("api type 'iso' only compatible with bian version 12. set the bian version with the --bian-version (-b) flag.")
 		}
 	}
 

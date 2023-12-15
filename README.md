@@ -49,6 +49,15 @@ The `kobi` CLI is developed on `golang` using `cobra` CLI. The executable `./kob
 
 Use the `--help` flag of any command to view usage instructions in the terminal
 
+## Flags
+
+All commands have the below optional flags:
+
+| Short | Long | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| -b | --bian-version | 9.1 | Set the BIAN version to obtain the API specs for. Supported values are `9.1` and `12`. |
+| -t | --api-type | `semantic` | Only valid for BIAN 12. Valid options are `semantic` and `iso`. |
+
 ## Version
 
 Use to list the installed version of `Kobi`
