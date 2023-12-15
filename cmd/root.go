@@ -58,7 +58,7 @@ func init() {
 	// will be global for your application.
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.kobi.yaml)")
-	rootCmd.PersistentFlags().StringVarP(&bianVersion, "bian-version", "b", "9.1", "BIAN Version of API Specifications to download. Supported are '9.1'(default) or '12'")
+	rootCmd.PersistentFlags().StringVarP(&bianVersion, "bian-version", "b", "9.1", "BIAN Version of API Specifications to download. Supported are [9.1, 10, 11, 12]")
 	rootCmd.PersistentFlags().StringVarP(&apiType, "api-type", "t", "", "Type of BIAN API to download. Only valid if --bian-version is 12. Supported are 'semantic'(default) or 'iso'")
 
 }

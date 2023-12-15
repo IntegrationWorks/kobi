@@ -32,7 +32,7 @@ KOBI
 
 # Compatibility
 
-Kobi is compatible with Kong Enterprise, version 1.0 and greater, and BIAN 9.1 and BIAN 12.0. Future releases will be compatibile with later versions of BIAN and Kong Konnect Cloud.
+Kobi is compatible with Kong Enterprise, version 1.0 and greater, and BIAN 9.1 through to BIAN 12.0. Future releases will be compatibile with later versions of BIAN and Kong Konnect Cloud.
 
 # Installation
 
@@ -55,7 +55,7 @@ All commands have the below optional flags:
 
 | Short | Long | Default | Description |
 | ----- | ---- | ------- | ----------- |
-| -b | --bian-version | 9.1 | Set the BIAN version to obtain the API specs for. Supported values are `9.1` and `12`. |
+| -b | --bian-version | 9.1 | Set the BIAN version to obtain the API specs for. Supported values are `[9.1, 10, 11, 12]`. |
 | -t | --api-type | `semantic` | Only valid for BIAN 12. Valid options are `semantic` and `iso`. |
 
 ## Version
