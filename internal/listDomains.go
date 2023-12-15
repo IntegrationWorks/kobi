@@ -11,20 +11,9 @@ import (
 
 func ListServices(bianVersion string, apiType string) {
 
-	fileExtension := ""
-	repoPath := ""
+	repoPath, fileExtension := GetRepositoryParams(bianVersion, apiType)
+	log.Printf("Reading BIAN specs from %s", repoPath)
 
-	if bianVersion == BIAN_VERSION_12 {
-		fileExtension = FILE_EXTENSION_YAML
-		if apiType == SEMANTIC_API {
-			repoPath = REPO_PATH_12_SEMANTIC
-		} else {
-			repoPath = REPO_PATH_12_ISO
-		}
-	} else {
-		fileExtension = FILE_EXTENSION_JSON
-		repoPath = REPO_PATH_9_1
-	}
 	client := github.NewClient(nil)
 
 	tree, _, err := client.Git.GetTree(

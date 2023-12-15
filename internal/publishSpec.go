@@ -20,13 +20,7 @@ var (
 
 func PublishSpecToPortal(workspaceFlag string, filepath string, bianVersion string) error {
 
-	fileExtension := ""
-
-	if bianVersion == BIAN_VERSION_12 {
-		fileExtension = FILE_EXTENSION_YAML
-	} else {
-		fileExtension = FILE_EXTENSION_JSON
-	}
+	_, fileExtension := GetRepositoryParams(bianVersion, "")
 
 	filepath = filepath + fileExtension
 

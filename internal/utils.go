@@ -34,3 +34,30 @@ func ValidateBianVersionAndAPIType(bianVersion string, apiType string) error {
 
 	return nil
 }
+
+func GetRepositoryParams(bianVersion string, apiType string) (repoPath string, fileExtension string) {
+
+	repoPath = ""
+	fileExtension = ""
+
+	if bianVersion == BIAN_VERSION_12 {
+		fileExtension = FILE_EXTENSION_YAML
+		if apiType == SEMANTIC_API {
+			repoPath = REPO_PATH_12_SEMANTIC
+		} else {
+			repoPath = REPO_PATH_12_ISO
+		}
+	} else if bianVersion == BIAN_VERSION_11 {
+		fileExtension = FILE_EXTENSION_YAML
+		repoPath = REPO_PATH_11
+	} else if bianVersion == BIAN_VERSION_10 {
+		fileExtension = FILE_EXTENSION_YAML
+		repoPath = REPO_PATH_10
+	} else {
+		fileExtension = FILE_EXTENSION_JSON
+		repoPath = REPO_PATH_9_1
+	}
+
+	return repoPath, fileExtension
+
+}

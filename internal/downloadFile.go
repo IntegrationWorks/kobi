@@ -11,20 +11,7 @@ import (
 
 func DownloadFile(service string, output string, bianVersion string, apiType string) error {
 
-	fileExtension := ""
-	repoPath := ""
-
-	if bianVersion == BIAN_VERSION_12 {
-		fileExtension = FILE_EXTENSION_YAML
-		if apiType == SEMANTIC_API {
-			repoPath = REPO_PATH_12_SEMANTIC
-		} else {
-			repoPath = REPO_PATH_12_ISO
-		}
-	} else {
-		fileExtension = FILE_EXTENSION_JSON
-		repoPath = REPO_PATH_9_1
-	}
+	repoPath, fileExtension := GetRepositoryParams(bianVersion, apiType)
 
 	if output == "" {
 		if bianVersion == BIAN_VERSION_12 {
