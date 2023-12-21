@@ -14,11 +14,7 @@ func DownloadFile(service string, output string, bianVersion string, apiType str
 	repoPath, fileExtension := GetRepositoryParams(bianVersion, apiType)
 
 	if output == "" {
-		if bianVersion == BIAN_VERSION_12 {
-			output = service + fileExtension
-		} else {
-			output = service + fileExtension
-		}
+		output = service + fileExtension
 	}
 
 	path := repoPath + service + fileExtension
