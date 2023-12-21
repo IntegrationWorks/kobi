@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -40,11 +40,11 @@ or --output flag to reference a filepath to save the content to.`,
 			return fmt.Errorf("missing argument `service`")
 		}
 		downloadCmdService = args[0]
-		return nil
+		return internal.ValidateBianVersionAndAPIType(bianVersion, apiType)
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fmt.Printf("download called for service %s\n", downloadCmdService)
-		return internal.DownloadFile(downloadCmdService, downloadCmdOutput)
+		return internal.DownloadFile(downloadCmdService, downloadCmdOutput, bianVersion, apiType)
 	},
 }
 

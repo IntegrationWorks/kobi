@@ -18,9 +18,11 @@ var (
 	workspace      string
 )
 
-func PublishSpecToPortal(workspaceFlag string, filepath string) error {
+func PublishSpecToPortal(workspaceFlag string, filepath string, bianVersion string) error {
 
-	filepath = filepath + FILE_EXTENSION
+	_, fileExtension := GetRepositoryParams(bianVersion, "")
+
+	filepath = filepath + fileExtension
 
 	if workspaceFlag == "" {
 		workspace = "default"

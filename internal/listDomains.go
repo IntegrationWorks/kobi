@@ -9,7 +9,10 @@ import (
 	"github.com/google/go-github/v37/github"
 )
 
-func ListServices() {
+func ListServices(bianVersion string, apiType string) {
+
+	repoPath, fileExtension := GetRepositoryParams(bianVersion, apiType)
+	log.Printf("Reading BIAN specs from %s", repoPath)
 
 	client := github.NewClient(nil)
 
@@ -27,10 +30,10 @@ func ListServices() {
 	}
 
 	for _, t := range tree.Entries {
-		if strings.HasPrefix(t.GetPath(), REPO_PATH) {
+		if strings.HasPrefix(t.GetPath(), repoPath) {
 			domainName := t.GetPath()
-			domainName = strings.Replace(domainName, REPO_PATH, "", 1)
-			domainName = strings.Replace(domainName, FILE_EXTENSION, "", 1)
+			domainName = strings.Replace(domainName, repoPath, "", 1)
+			domainName = strings.Replace(domainName, fileExtension, "", 1)
 			if domainName != "Readme.md" {
 				fmt.Println(domainName)
 			}

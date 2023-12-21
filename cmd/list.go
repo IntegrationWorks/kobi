@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,9 +28,12 @@ var listCmd = &cobra.Command{
 	Long: `Returns a list of available BIAN service domains which can be
 subsequently published to a Kong API Manager or Kong Developer 
 Portal using kobi publish `,
+	PreRunE: func(cmd *cobra.Command, args []string) error {
+		return internal.ValidateBianVersionAndAPIType(bianVersion, apiType)
+	},
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("-- Listing all available BIAN service domains --")
-		internal.ListServices()
+		internal.ListServices(bianVersion, apiType)
 		fmt.Println("------------------------------------------------")
 	},
 }
